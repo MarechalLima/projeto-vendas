@@ -7,7 +7,7 @@
 
 
     public function insert($pedido_produto){
-      $stmt = parent::prepareStatement("INSERT INTO $table(id_pedido, id_produto, quantidade) VALUES(?,?,?)");
+      $stmt = parent::prepareStatement("INSERT INTO $this->table(id_pedido, id_produto, quantidade) VALUES(?,?,?)");
       $stmt->bind_param("iii", $pedido_produto->getPedido(),$pedido_produto->getProduto(), $pedido_produto->getQuantidade());
 
       if($stmt->execute()){
@@ -77,4 +77,5 @@
       $stmt->close();
     }
   }
+
 ?>

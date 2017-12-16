@@ -81,8 +81,7 @@
   }
 
   $p = new ProdutoDAO();
-  $prod = new Produto(2, "UpdateTeste",8000, 300);
-  $a = $p->update(1,$prod);
-  
+  $ped = new Produto(10,"fgfgfg",66,7887);
+  $p->insert($ped);
 
  ?>
