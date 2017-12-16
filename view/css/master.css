@@ -1,0 +1,15 @@
+* {margin:0;padding:0;}
+body{
+  font-family: sans-serif;
+  background-color: white;
+  color: black;
+}
+
+img{
+  width: 75px;
+  float: left;
+  margin-right: 10px;
+}
+.pagina{
+  padding: 5%;
+}
