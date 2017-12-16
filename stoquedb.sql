@@ -1,3 +1,7 @@
+CREATE database stoquedb;
+use stoquedb;
+
+
 CREATE TABLE produto(
   id int PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(50) NOT NULL,
