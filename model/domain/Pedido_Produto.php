@@ -1,30 +1,42 @@
 <?php
     class Pedido_Produto{
-        private $pedido_id;
-        private $produto_id;
-        private $qtd;
-        public function __construct($pedido_id, $produto_id, $qtd){
-            $this->$pedido_id = $pedido_id;
-            $this->$produto_id = $produto_id;
-            $this->$qtd = $qtd;
+        private $id;
+        private $id_pedido;
+        private $id_produto;
+        private $quantidade;
+        public function __construct($id, $id_pedido, $id_produto, $quantidade){
+            $this->$id = $id;
+            $this->$id_pedido = $id_pedido;
+            $this->$id_produto = $id_produto;
+            $this->$quantidade = $quantidade;
         }
+/** ID **/
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($new_id){
+            $this->id = $new_id;
+        }
+/** PEDIDO **/
         public function getPedido(){
-            return $this->pedido_id;
+            return $this->id_pedido;
         }
-        public function setPedido($new_pedido_id){
-            $this->pedido_id = $new_pedido_id;
+        public function setPedido($new_id_pedido){
+            $this->id_pedido = $new_id_pedido;
         }
+/** PRODUTO **/
         public function getProduto(){
-            return $this->$produto_id;
+            return $this->$id_produto;
         }
-        public function setProduto($new_produto_id){
-            $this->$produto_id = $new_produto_id;
+        public function setProduto($new_id_produto){
+            $this->$id_produto = $new_id_produto;
         }
-        public function getQtd(){
-            return $this->$qtd;
+/** QUANTIDADE **/
+        public function getQuantidade(){
+            return $this->$quantidade;
         }
-        public function setQtd($new_qtd){
-            $this->$qtd = $new_qtd;
+        public function setQuantidade($new_quantidade){
+            $this->$quantidade = $new_quantidade;
         }
     }
 ?>
