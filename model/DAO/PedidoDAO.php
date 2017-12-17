@@ -1,6 +1,6 @@
 <?php
-  require_once '../../conexao.php';
-  require '../domain/Pedido.php';
+  require dirname(__FILE__).'/../../conexao.php';
+  require dirname(__FILE__).'/../domain/Pedido.php';
 
   class PedidoDAO extends Connection{
     private $table = 'pedido';
