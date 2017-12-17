@@ -23,8 +23,8 @@
 
       if (isset($_SESSION["logado"]) && !empty($_SESSION["logado"])) {
           if ($_SESSION['logado']==true) {
-              echo "<script>alert('Usuário já logado!'); window.location = 'historico.php'</script>";
-              exit();
+              //echo "<script>alert('Usuário já logado!'); window.location = 'historico.php'</script>";
+              //exit();
           }
       }
 
@@ -59,11 +59,11 @@
       if (isset($_REQUEST['DifferentPasswords'])){//Verifica se o usuário não estava logado
         echo "<script>showToast('Senhas diferentes!')</script>";
         unset($_REQUEST['DifferentPasswords']);
-      }  
+      }
       if (isset($_REQUEST['UserAlreadyRegistered'])){//Verifica se o usuário não estava logado
         echo "<script>showToast('Usuário já existente!')</script>";
         unset($_REQUEST['UserAlreadyRegistered']);
-      }  
+      }
 
     ?>
     <div class="container">
