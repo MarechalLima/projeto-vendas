@@ -28,6 +28,7 @@
         $result = new Funcionario($id, $cargo, $login, $nome, $senha);
         $funcionarios[] = $result;
       }
+
     } else {
       echo "Erro ao consultar o banco de dados!";
     }
@@ -45,7 +46,7 @@
     $stmt->fetch();
 
     $funcionario = new Funcionario($id, $cargo, $login, $nome, $senha);
-    print_r($funcionario);
+
     $stmt->close();
     return $funcionario;
   }
@@ -65,7 +66,7 @@
 
   public function update($id, $novoFuncionario) {
     $stmt = parent::prepareStatement("update $this->table set cargo = ?, login = ?, nome = ?, senha = ? where id = ?");
-    $stmt->bind_param("ssssi",  $novoFuncionario->getCargo(), $novoFuncionario->getLogin(), $novoFuncionario->getNome(), $novoFuncionario->getSenha(), $novoFuncionario->getId());
+    $stmt->bind_param("ssssi",  $novoFuncionario->getCargo(), $novoFuncionario->getLogin(), $novoFuncionario->getNome(), $novoFuncionario->getSenha(), $id);
 
     if($stmt->execute()) {
       echo "Update realizado com sucesso!";
@@ -75,5 +76,11 @@
 
     $stmt->close();
   }
+
+
 }
+
+$c = new FuncionarioDAO;
+$func = new Funcionario(1, "Vendedor", "Maconheiro", "maconheiro2.0", "123");
+$c->getById(1);
 ?>

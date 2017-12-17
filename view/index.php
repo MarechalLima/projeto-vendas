@@ -61,7 +61,7 @@
         unset($_REQUEST['DifferentPasswords']);
       }  
       if (isset($_REQUEST['UserAlreadyRegistered'])){//Verifica se o usuário não estava logado
-        echo "<script>showToast('Usuário já cadastrado!')</script>";
+        echo "<script>showToast('Usuário já existente!')</script>";
         unset($_REQUEST['UserAlreadyRegistered']);
       }  
 
