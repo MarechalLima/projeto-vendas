@@ -16,6 +16,10 @@
     public function query($sql){
       return $this->connection->query($sql);
     }
+
+    public function prepareStatement($sql){
+      return $this->connection->prepare($sql);
+    }
   }
 
 ?>
