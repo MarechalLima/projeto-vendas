@@ -1,6 +1,6 @@
 <?php
-    include '../../conexao.php';
-    include '../domain/Pedido_Produto.php';
+    require dirname(__FILE__).'/../../conexao.php';
+    include dirname(__FILE__).'/../domain/Pedido_Produto.php';
 
   class Pedido_ProdutoDAO extends Connection{
     private $table = 'pedido_produto';

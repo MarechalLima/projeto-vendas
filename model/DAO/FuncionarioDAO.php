@@ -1,6 +1,6 @@
 <?php
-  require_once '../../conexao.php';
-  require '../domain/Funcionario.php';
+  require dirname(__FILE__).'/../../conexao.php';
+  require dirname(__FILE__).'/../domain/Funcionario.php';
 
   class FuncionarioDAO extends Connection{
     private $table = 'funcionario';
