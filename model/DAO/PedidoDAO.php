@@ -53,8 +53,9 @@
       return $pedido;
     }
 
-    public function getByFuncionario($id_funcionario){
+    public function getByFuncionario($busca_id_funcionario){
       $stmt = parent::prepareStatement("SELECT * FROM $this->table WHERE id_funcionario=?");
+      $stmt->bind_param("i",$busca_id_funcionario);
       if($stmt->execute()){
         $stmt->bind_result($id,$data_compra,$id_funcionario);
 
