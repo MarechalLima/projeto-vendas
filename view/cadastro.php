@@ -8,7 +8,6 @@
   <body>
       <form method="POST" action="cadastrando.php">
         Cargo: <input type="text" name = "cargo"> <br>
-        ID: <input type="text" name = "id"> <br>
         Login: <input type="text" name = "login"> <br>
         Nome: <input type="text" name = "nome"> <br>
         Senha: <input type="password" name = "senha"> <br>
