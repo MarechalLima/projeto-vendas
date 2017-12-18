@@ -1,6 +1,7 @@
 <?php
   require '../model/DAO/ProdutoDAO.php';
-  //require '../model/domain/Produto.php';
+  require '../model/DAO/CaracteristicaDAO.php';
+  require '../model/DAO/Produto_caracteristicaDAO.php';
   include 'navbar.php';
 ?>
 
@@ -30,28 +31,50 @@
 
 
       <ul class="collapsible" data-collapsible="accordion">
+        <?php
+          $prod = new ProdutoDAO();
+          $allProdutos = $prod->getAll();
+          $cProd = new Produto_caracteristicaDAO();
+          $caracteristica = new CaracteristicaDAO();
+
+          foreach ($allProdutos as $produto) {
+              $nome = $produto->getNome();
+              $preco = $produto->getPreco();
+              $qtd_estoque = $produto->getQTDEstoque();
+
+              $idProd = $produto->getId();
+              $caracteristicaProd = $cProd->getByIdProd($idProd);
+
+
+
+        ?>
         <li>
           <div class="collapsible-header" style="display:block">
-            Liquidificador Mallory Flash Black - 2 Velocidades 450W
+            <?= $nome ?>
             <div class="secondary-content">
-              R$ 49,90
+              <?= "R$ ".$preco ?>
 
             </div>
           </div>
           <div class="collapsible-body">
-            <span class="new badge right" data-badge-caption="em estoque">250</span>
+            <span class="new badge right" data-badge-caption="em estoque"><?= $qtd_estoque ?></span>
             <table class="striped bordered">
+              <?php
+                foreach ($caracteristicaProd as $c) {
+                  $id_caracteristica = $c->getId_caracteristica();
+                  $caracter = $caracteristica->getById($id_caracteristica);
+                  $titulo = $caracter->getTitulo();
+                  $valor = $c->getValor();
+              ?>
               <tr>
-                <th>Voltagem</th>
-                <td>220V</td>
+                <th><?= $titulo ?></th>
+                <td><?= $valor ?></td>
               </tr>
-              <tr>
-                <th>Potência</th>
-                <td>200W</td>
-              </tr>
+            <?php } ?>
             </table>
           </div>
         </li>
+      <?php } ?>
       </ul>
     </div>
 
