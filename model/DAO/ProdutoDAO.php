@@ -80,8 +80,6 @@
     }
   }
 
-  $p = new ProdutoDAO();
-  $ped = new Produto(10,"fgfgfg",66,7887);
-  $p->insert($ped);
+
 
  ?>
