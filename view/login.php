@@ -15,6 +15,7 @@
 
         foreach ($arrayfunc as $login) {
           if($usuario == $login['login'] && password_verify($senha, $login['senha'])) {
+            $_SESSION['usuario'] = $login['login'];
             $flag = true;
             header("location: ProdutosView.php");
             break;
