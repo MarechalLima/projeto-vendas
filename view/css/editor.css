@@ -1,0 +1,12 @@
+#editor-texto{
+  min-height: 15em;
+  overflow: scroll;
+}
+
+#editor-texto ul li{
+  list-style: disc;
+}
+
+#editor-texto ul,ol{
+  margin-left: 2em;
+}
