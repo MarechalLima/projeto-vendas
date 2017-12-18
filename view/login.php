@@ -4,6 +4,7 @@
       if((isset($_POST["login"]) && isset($_POST["senha"])) && (!empty($_POST["login"]) && !empty($_POST["senha"])) ) {
         $usuario = $_POST['login'];
 
+
         print_r($_POST['senha']);
         $senha = $_POST['senha'];
 

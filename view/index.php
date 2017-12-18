@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Editor de Texto </title>
+    <title> Stoque </title>
     <meta charset="utf-8">
-    <link rel="icon" href="images/icon2.png">
+    <link rel="icon" href="images/send-blue.png">
     <link rel="stylesheet" href="css/login.css">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/master.css">
+
+    <link rel="stylesheet" type="text/css" href="css/transicao/keyframes.css">
+    <link rel="stylesheet" type="text/css" href="css/transicao/animation.scss">
+
+    <script>
+      function showToast(message){//Função que exibe o toast
+        Materialize.toast(message, 3000);
+      }
+    </script>
 
   </head>
   <body>
@@ -18,25 +22,72 @@
       session_start();
 
       if (isset($_SESSION["logado"]) && !empty($_SESSION["logado"])) {
-        if ($_SESSION['logado']==TRUE) {
-          echo "<script>alert('Usuário já logado!'); window.location = 'corretor.php'</script>";
-          exit();
-        }
+          if ($_SESSION['logado']==true) {
+              //echo "<script>alert('Usuário já logado!'); window.location = 'historico.php'</script>";
+              //exit();
+          }
+      }
+
+      include 'materialize.php';
+
+
+      if (isset($_REQUEST['FromLogout'])){//Verifica se o logout foi efetuado
+        echo "<script>showToast('Logout realizado!')</script>";
+        unset($_REQUEST['FromLogout']);
+      }
+
+
+      if (isset($_REQUEST['NotLoggedIn'])){//Verifica se o usuário não estava logado
+        echo "<script>showToast('Usuário não logado!')</script>";
+        unset($_REQUEST['NotLoggedIn']);
+      }
+
+
+      if (isset($_REQUEST['IncorrectData'])){//Verifica se o usuário estiver com os dados incorretos
+        echo "<script>showToast('Dados incorretos!')</script>";
+        unset($_REQUEST['IncorrectData']);
+      }
+
+      if (isset($_REQUEST['IncompleteData'])){//Verifica se o usuário não estava logado
+        echo "<script>showToast('Dados incompletos!')</script>";
+        unset($_REQUEST['IncompleteData']);
+      }
+      if (isset($_REQUEST['SignUp'])){//Verifica se o usuário não estava logado
+        echo "<script>showToast('Usuário cadastrado!')</script>";
+        unset($_REQUEST['SignUp']);
+      }
+      if (isset($_REQUEST['DifferentPasswords'])){//Verifica se o usuário não estava logado
+        echo "<script>showToast('Senhas diferentes!')</script>";
+        unset($_REQUEST['DifferentPasswords']);
+      }
+      if (isset($_REQUEST['UserAlreadyRegistered'])){//Verifica se o usuário não estava logado
+        echo "<script>showToast('Usuário já existente!')</script>";
+        unset($_REQUEST['UserAlreadyRegistered']);
       }
 
     ?>
     <div class="container">
-      <h4 class="center-align">Bem vindo ao Editop</h4>
-      <br>
-      <br>
       <div class="row">
-        <div class="col s12 m6">
-          <div class="card push-s3 z-depth-5 grey lighten-2">
+        <div class="col s6 offset-s3">
+          <div class="card push-s3 z-depth-2 grey lighten-3">
             <div class="card-content">
               <div class="row">
               <div class="col s12">
-                <br>
-                <span class="card-title">Login to Editop</span>
+
+                <span class="card-title">
+                  <img src="images/logo-editop.png" alt="">
+                </span>
+                <br><br><br>
+
+                <span style="font-size:1.5em">Login</span> <br>
+                Ir para o Stoque
+
+
+
+
+                <div class="m-right-panel m-page scene_element scene_element--fadeinright">
+
+
                 <form method="POST" action="login.php">
                   <div class="row">
                     <div class="input-field col s12">
@@ -57,6 +108,9 @@
                           </button>
                         </div>
                       </div>
+
+                      </div>
+
                   </form>
               </div>
           </div>
@@ -67,7 +121,9 @@
         <div class="card-reveal grey lighten-3">
           <span class="card-title grey-text text-darken-4">Cadastre-se<i class="material-icons right">close</i></span>
           <br>
-          <form action="cadastro.php" method="POST">
+
+
+          <form action="cadastrando.php" method="POST">
             <div class="row">
               <div class="input-field col s12">
                 <input id="user" type="text" name="usuario" class="validate">
@@ -90,16 +146,13 @@
               </div>
             </div>
           </form>
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>
