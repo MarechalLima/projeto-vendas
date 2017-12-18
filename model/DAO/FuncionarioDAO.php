@@ -80,7 +80,6 @@
 
 }
 
-$c = new FuncionarioDAO;
-$func = new Funcionario(1, "Vendedor", "Maconheiro", "maconheiro2.0", "123");
-$c->getById(1);
+
+
 ?>
