@@ -14,10 +14,11 @@ CREATE TABLE caracteristica(
   titulo VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE pedido_caracteristica(
+CREATE TABLE produto_caracteristica(
   id int PRIMARY KEY AUTO_INCREMENT,
-  id_produto int,
-  id_caracteristica int,
+  id_produto int NOT NULL,
+  id_caracteristica int NOT NULL,
+  valor varchar(50) NOT NULL,
   FOREIGN KEY(id_produto) REFERENCES produto(id),
   FOREIGN KEY(id_caracteristica) REFERENCES caracteristica(id)
 );
