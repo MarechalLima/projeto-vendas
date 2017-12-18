@@ -53,11 +53,26 @@
       return $pedido;
     }
 
-  }
-  $p = new PedidoDAO();
-  $ped = new Pedido(5,"1/12/2017",500);
-  $p->insert($ped);
+    public function getByFuncionario($id_funcionario){
+      $stmt = parent::prepareStatement("SELECT * FROM $this->table WHERE id_funcionario=?");
+      if($stmt->execute()){
+        $stmt->bind_result($id,$data_compra,$id_funcionario);
 
+
+        $historico = array();
+
+        while($stmt->fetch()){
+          $result = new Pedido($id,$data_compra,$id_funcionario);
+          $historico[] = $result;
+        }
+      }else{
+        echo "Erro ao consultar o banco de dados!";
+      }
+
+      $stmt->close();
+      return $historico;
+    }
+  }
 
 
  ?>
