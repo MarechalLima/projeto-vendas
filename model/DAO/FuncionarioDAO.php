@@ -6,8 +6,8 @@
     private $table = 'funcionario';
 
     public function  insert($Funcionario) {
-      $stmt = parent::prepareStatement("INSERT INTO funcionario(id, cargo, login, nome, senha) values (?, ?, ?, ?, ?)");
-      $stmt->bind_param("issss", $Funcionario->getId(), $Funcionario->getCargo(), $Funcionario->getLogin(), $Funcionario->getNome(), password_hash($Funcionario->getSenha(), PASSWORD_DEFAULT));
+      $stmt = parent::prepareStatement("INSERT INTO funcionario(cargo, login, nome, senha) values (?, ?, ?, ?)");
+      $stmt->bind_param("ssss", $Funcionario->getCargo(), $Funcionario->getLogin(), $Funcionario->getNome(), password_hash($Funcionario->getSenha(), PASSWORD_DEFAULT));
 
       if($stmt->execute()) {
         echo "Funcionario inserido com sucesso!";
