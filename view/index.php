@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Editor de Texto </title>
+    <title> Stoque </title>
     <meta charset="utf-8">
     <link rel="icon" href="images/send-blue.png">
     <link rel="stylesheet" href="css/login.css">
@@ -80,7 +80,7 @@
                 <br><br><br>
 
                 <span style="font-size:1.5em">Login</span> <br>
-                Ir para o Editop
+                Ir para o Stoque
 
 
 
