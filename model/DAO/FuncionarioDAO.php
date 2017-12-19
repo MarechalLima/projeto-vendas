@@ -10,9 +10,9 @@
       $stmt->bind_param("ssss", $Funcionario->getCargo(), $Funcionario->getLogin(), $Funcionario->getNome(), password_hash($Funcionario->getSenha(), PASSWORD_DEFAULT));
 
       if($stmt->execute()) {
-        //echo "Funcionario inserido com sucesso!";
+        header('location: listaFuncionarios.php?Inserted=TRUE');
       } else {
-        //echo "Erro ao inserir dados!";
+        header('location: cadastro.php?Error=TRUE');
       }
   }
 

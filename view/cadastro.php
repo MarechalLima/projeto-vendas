@@ -7,9 +7,21 @@
   <head>
     <meta charset="utf-8">
     <title>Cadastro de Funcionários</title>
+    <script>
+        function showToast(message){
+          Materialize.toast(message, 2000);
+        }
+    </script>
   </head>
 
   <body>
+
+  <?php
+        //Teste de erro ao inserir usuário 
+        if(isset($_REQUEST["Error"])){
+          echo "<script>showToast('Erro ao inserir usuário!');</script>";
+        }
+  ?>
     <div class="container">
 
       <div class="row">

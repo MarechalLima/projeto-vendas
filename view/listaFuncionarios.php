@@ -8,6 +8,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script>
+        function showToast(message){
+          Materialize.toast(message, 2000);
+        }
+    </script>
   </head>
   <body>
 
@@ -22,6 +27,15 @@
               <th>Cargo</th>
             </thead>
             <?php
+
+            //Teste de usuário recém-inserido
+            if(isset($_REQUEST["Inserted"])){
+              echo "<script>showToast('Usuário inserido!');</script>";
+            }
+            if(isset($_REQUEST["Deleted"])){
+              echo "<script>showToast('Usuário deletado!');</script>";
+            }
+
               $f = new FuncionarioDAO();
               $funcionarios = $f->getAll();
               foreach ($funcionarios as $funcionario) {

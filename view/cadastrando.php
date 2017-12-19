@@ -18,6 +18,6 @@
 
         $funcd->insert($func);
     } else {
-      header("location: cadastro.php");
+      header("location: cadastro.php?Error=TRUE");
     }
 ?>
