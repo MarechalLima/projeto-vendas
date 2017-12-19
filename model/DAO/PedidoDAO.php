@@ -11,9 +11,9 @@
       $stmt = parent::prepareStatement("INSERT INTO pedido(data_compra,id_funcionario,id_produto,quantidade) VALUES(?,?,?,?)");
      $stmt->bind_param("siii",$pedido->getData_compra(),$pedido->getId_funcionario(),$pedido->getId_produto(),$pedido->getQuantidade());
       if($stmt->execute()){
-        echo "Pedido inserido com sucesso!";
+        //echo "Pedido inserido com sucesso!";
       }else{
-        echo "Erro ao inserir dados!";
+        //echo "Erro ao inserir dados!";
       }
 
       $stmt->close();
@@ -33,7 +33,7 @@
           $pedidos[] = $result;
         }
       }else{
-        echo "Erro ao consultar o banco de dados!";
+        //echo "Erro ao consultar o banco de dados!";
       }
 
       $stmt->close();
@@ -67,7 +67,7 @@
           $historico[] = $result;
         }
       }else{
-        echo "Erro ao consultar o banco de dados!";
+        //echo "Erro ao consultar o banco de dados!";
       }
 
       $stmt->close();

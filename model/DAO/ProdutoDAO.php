@@ -13,9 +13,9 @@
       $stmt->bind_param("sdi", $produto->getNome(),$produto->getPreco(), $produto->getQTDEstoque());
 
       if($stmt->execute()){
-        echo "Produto inseridos com sucesso!";
+        //echo "Produto inseridos com sucesso!";
       }else{
-        echo "Erro ao inserir dados!";
+        //echo "Erro ao inserir dados!";
       }
 
       $stmt->close();
@@ -35,7 +35,7 @@
           $produtos[] = $result;
         }
       }else{
-        echo "Erro ao consultar o banco de dados!";
+        //echo "Erro ao consultar o banco de dados!";
       }
 
       $stmt->close();
@@ -59,9 +59,9 @@
       $stmt = parent::prepareStatement("DELETE FROM $this->table WHERE id=?");
       $stmt->bind_param("i",$id);
       if($stmt->execute()){
-        echo "<br> Excluido com sucesso!";
+        //echo "<br> Excluido com sucesso!";
       }else{
-        echo "<br> Erro ao excluir!";
+        //echo "<br> Erro ao excluir!";
       }
 
       $stmt->close();
@@ -71,9 +71,9 @@
       $stmt = parent::prepareStatement("UPDATE $this->table SET nome=?, preco=?, qtd_estoque=? WHERE id=?");
       $stmt->bind_param("sdii",$novoProduto->getNome(),$novoProduto->getPreco(),$novoProduto->getQTDEstoque(),$id);
       if($stmt->execute()){
-        echo "<br> Update realizado com sucesso!";
+        //echo "<br> Update realizado com sucesso!";
       }else{
-        echo "<br> Erro ao atualizar registro!";
+        //echo "<br> Erro ao atualizar registro!";
       }
 
       $stmt->close();
