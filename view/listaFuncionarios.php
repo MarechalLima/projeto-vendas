@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <div class="col s10 offset-s3">
-          <table class="striped col-s8 offset-s3">
+          <table class="highlight col-s8 offset-s3">
             <thead>
               <th>Id</th>
               <th>Nome</th>
@@ -41,10 +41,8 @@
               <button type="submit" class="btn" name="button"><i class="material-icons">edit</i></button>
 
                               <form method="POST" action="deleteFuncionario.php">
+                                  <input type="number" name="idfunc" hidden="true" value="<?= $idFunc ?>">
                                 <button type = "submit" class="btn" name="button"><i class="material-icons">delete</i></button>
-                                <?php
-                                  $_SESSION['idfunc'] = $idFunc;                                  
-                                 ?>
                               </form>
               </td>
             </tr>

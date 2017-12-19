@@ -4,7 +4,7 @@
     require dirname(__FILE__).'/../model/DAO/PedidoDAO.php';
     require dirname(__FILE__).'/../model/DAO/ProdutoDAO.php';
     include 'navbar.php';
-    
+
     if (!$_SESSION['logado']) {
     header('location: index.php?NotLoggedIn=TRUE');
     exit();
@@ -40,13 +40,14 @@
         ?>
         <li>
             <div class="collapsible-header" style="display:block">
-                <?= $idPedido ?>
+                Pedido n° <?= $idPedido ?> - 
+                <?= $nomeProd ?>
                 <div class="secondary-content">
                 <?= date('d/m/Y',strtotime($data_compra)) ?>
                 </div>
             </div>
             <div class="collapsible-body">
-                <table class="striped bordered">
+                <table class="highlight bordered">
                   <tr>
                     <td><?= $nomeProd ?></td>
                     <td><?= $qtdProd ?></td>
