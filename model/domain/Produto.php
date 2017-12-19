@@ -5,7 +5,7 @@
     private $preco;
     private $qtd_estoque;
 
-    public function __construct($id, $nome, $preco, $qtd_estoque){
+    function __construct($id, $nome, $preco, $qtd_estoque){
       $this->id = $id;
       $this->nome = $nome;
       $this->preco = $preco;
