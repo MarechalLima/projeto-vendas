@@ -19,6 +19,7 @@
     <ul id="slide-out" class="side-nav fixed" style="top:65px">
       <li><a class="subheader">Produtos</a></li>
       <li><a href="listaProdutosAdmin.php">Lista de produtos</a></li>
+      <li><a href="reporEstoque.php">Repor estoque</a></li>
       <li><a href="caracteristicas.php">Características</a></li>
 
       <li><div class="divider"></div></li>
