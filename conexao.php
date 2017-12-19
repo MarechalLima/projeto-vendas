@@ -1,5 +1,5 @@
 <?php
-        
+
   class Connection{
     private $connection;
 
@@ -10,7 +10,6 @@
         die("Conexão falhou: ". $this->connection->connect_error);
       }
 
-      echo "Conexão feita com sucesso!";
     }
 
     public function query($sql){
