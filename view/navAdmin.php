@@ -1,11 +1,14 @@
 <?php
   //session_start();
-
-  if(!@$_SESSION['admin'] || !isset($_SESSION['admin'])){
-    //redirecionar
+  include 'navbar.php';
+  if(isset($_SESSION['admin'])){
+    if(!$_SESSION['admin']){
+      header("location:ProdutosView.php");
+    }
+  }else{
+    header("location:ProdutosView.php");
   }
 
-  include 'navbar.php'
  ?>
 
 <!DOCTYPE html>

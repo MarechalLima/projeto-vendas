@@ -40,6 +40,7 @@
     public function getBySearch($search){
       $stmt = parent::prepareStatement("SELECT * FROM $this->table where nome LIKE CONCAT(?,'%')");
       $stmt->bind_param("s",$search);
+      $produtos = [];
       if($stmt->execute()){
 
         $stmt->bind_result($id, $nome, $preco, $qtd_estoque);

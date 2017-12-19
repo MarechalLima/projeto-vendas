@@ -70,7 +70,7 @@
         <?php
           $cProd = new Produto_caracteristicaDAO();
           $caracteristica = new CaracteristicaDAO();
-
+          
           foreach ($allProdutos as $produto) {
               $idProduto = $produto->getId();
               $nome = $produto->getNome();

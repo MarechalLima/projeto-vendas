@@ -31,14 +31,13 @@
           <ul class="right hide-on-med-and-down">
             <li><a href="ProdutosView.php">Estoque</a></li>
             <li><a href="historico.php">Histórico de vendas</a></li>
+            <?php
+              
+             ?>
             <li><a href="listaProdutosAdmin.php">Painel Administrador</a></li>
           </ul>
 
-          <ul id="nav-mobile" class="side-nav">
-            <li><a href="index.php">Página Inicial</a></li>
-            <li><a href="corretor.php">Corretor</a></li>
-            <li><a href="logout.php">Logout</a></li>
-          </ul>
+
 
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>

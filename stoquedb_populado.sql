@@ -311,7 +311,7 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `produto_caracteristica`
   ADD CONSTRAINT `produto_caracteristica_ibfk_1` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `produto_caracteristica_ibfk_2` FOREIGN KEY (`id_caracteristica`) REFERENCES `caracteristica` (`id`);
+  ADD CONSTRAINT `produto_caracteristica_ibfk_2` FOREIGN KEY (`id_caracteristica`) REFERENCES `caracteristica` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -11,10 +11,8 @@
 
   $result = $func->deleteById($id);
   if($result) {
-      echo " <br> foi";
-      //header("location: caracteristicas.php");
+    header("location: caracteristicas.php");
   } else {
-    echo "<br> deu merda";
-    //header("location: caracteristicas.php");
+    header("location: caracteristicas.php");
   }
  ?>

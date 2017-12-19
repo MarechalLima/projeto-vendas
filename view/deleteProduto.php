@@ -10,10 +10,10 @@
 
   if($result) {
       echo " <br> foi";
-      //header("location: listaProdutosAdmin.php");
+      header("location: listaProdutosAdmin.php");
   } else {
     echo "<br> deu merda";
-    //header("location: listaProdutosAdmin.php");
+    header("location: listaProdutosAdmin.php");
   }
 
  ?>
