@@ -32,9 +32,13 @@
             <li><a href="ProdutosView.php">Estoque</a></li>
             <li><a href="historico.php">Histórico de vendas</a></li>
             <?php
-              
+              if(isset($_SESSION['admin'])){
+                if($_SESSION['admin']){
+                  echo "<li><a href='listaProdutosAdmin.php'>Painel Administrador</a></li>";
+                }
+              }
              ?>
-            <li><a href="listaProdutosAdmin.php">Painel Administrador</a></li>
+
           </ul>
 
 

@@ -13,6 +13,10 @@
 
     $produtoDAO->update($id,$produto);
   }
+
+  if(isset($_REQUEST["Inserted"])){
+    echo "<script>Materialize.toast('Reposição de estoque realizada!',2000);</script>";
+  }
  ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,11 @@
   <head>
     <meta charset="utf-8">
     <title>Repor estoque</title>
+    <script type="text/javascript">
+      showToast(message){
+        Materialize.toast(message, 2000);
+      }
+    </script>
   </head>
 
   <body>
@@ -31,11 +40,14 @@
           <h5>Cadastro de funcionários</h5>
         </div>
         <div class="col s10 offset-s3">
-          <form method="POST" action="reporEstoque.php">
+          <form method="POST" action="reporEstoque.php?Inserted=TRUE">
             <div class="row">
               <div class="input-field col s6">
                 <select name="idProduto">
                   <?php
+
+
+
 
                     $produtos = $produtoDAO->getAll();
 

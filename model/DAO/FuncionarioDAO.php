@@ -56,10 +56,10 @@
     $stmt->bind_param("i", $id);
 
     if($stmt->execute()) {
-      //echo "<br> Excluído com sucesso";
+      return  true;
     } else {
-      //echo "<br> Erro ao excluir!";
-    }
+      return false;
+      }
 
     $stmt->close();
   }

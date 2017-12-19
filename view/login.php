@@ -18,7 +18,7 @@
             $_SESSION['usuario'] = $login['id'];
             $_SESSION['logado'] = true;
             $_SESSION['funcionario'] = $login['nome'];
-            if($login['nome'] == "admin"){
+            if($login['cargo'] == "administrador" || $login['cargo'] == "gerente"){
                 $_SESSION['admin'] = true;
             }else{
                 $_SESSION['admin'] = false;
@@ -36,6 +36,6 @@
         }
       }else {
         header("location: index.php?IncompleteData=TRUE");
-        
+
       }
 ?>

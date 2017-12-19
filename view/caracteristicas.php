@@ -14,6 +14,11 @@
   <head>
     <meta charset="utf-8">
     <title>Características</title>
+    <script>
+      function showToast(message){
+        Materialize.toast(message, 2000);
+      }
+    </script>
   </head>
   <body>
     <div class="container">
@@ -26,6 +31,14 @@
               <th>Ações</th>
             </thead>
             <?php
+            if (isset($_REQUEST["Inserted"])){
+              echo "<script>showToast('Caracteristica inserida!');</script>";
+            }
+
+            if (isset($_REQUEST["Deleted"])){
+              echo "<script>showToast('Caracteristica deletada!');</script>";
+            }
+
             $c = new CaracteristicaDAO();
             $caracteristicas = $c->getAll();
             foreach ($caracteristicas as $caracteristica) {
@@ -59,7 +72,7 @@
     </div>
 
     <div id="modalAdd" class="modal">
-      <form class="" action="caracteristicas.php" method="post">
+      <form class="" action="caracteristicas.php?Inserted=TRUE" method="post">
         <div class="modal-content">
           <h4>Adicionar caracteristica</h4>
 

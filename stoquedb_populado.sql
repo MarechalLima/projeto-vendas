@@ -56,7 +56,7 @@ CREATE TABLE `funcionario` (
   `id` int(11) NOT NULL,
   `nome` varchar(80) NOT NULL,
   `cargo` varchar(30) NOT NULL,
-  `login` varchar(50) NOT NULL,
+  `login` varchar(50) NOT NULL UNIQUE,
   `senha` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

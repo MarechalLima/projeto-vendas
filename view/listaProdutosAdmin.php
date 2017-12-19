@@ -4,6 +4,10 @@
   require '../model/DAO/Produto_caracteristicaDAO.php';
   require '../model/DAO/CaracteristicaDAO.php';
 
+  if(isset($_REQUEST["Deleted"])){
+    echo "<script>Materialize.toast('Produto removido!',2000);</script>";
+  }
+
   if(isset($_POST['nome']) && isset($_POST['preco']) && isset($_POST['qtdEstoque'])){
     $nome = $_POST['nome'];
     $preco = $_POST['preco'];
@@ -14,6 +18,8 @@
     $prod = new ProdutoDAO();
     $prod->insert($produto);
     $idProduto = $prod->getLastInsert();
+
+
 
     //$produtoObject = $prod->getById($idProduto);
 

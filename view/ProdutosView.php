@@ -70,7 +70,11 @@
         <?php
           $cProd = new Produto_caracteristicaDAO();
           $caracteristica = new CaracteristicaDAO();
-          
+
+          if (isset($_REQUEST['Denied'])) {
+            echo "<script>Materialize.toast('Acesso negado!',2000); </script>";
+          }
+
           foreach ($allProdutos as $produto) {
               $idProduto = $produto->getId();
               $nome = $produto->getNome();

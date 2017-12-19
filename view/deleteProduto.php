@@ -9,10 +9,8 @@
   $result = $prod->deleteById($id);
 
   if($result) {
-      echo " <br> foi";
-      header("location: listaProdutosAdmin.php");
+      header("location: listaProdutosAdmin.php?Deleted=TRUE");
   } else {
-    echo "<br> deu merda";
     header("location: listaProdutosAdmin.php");
   }
 

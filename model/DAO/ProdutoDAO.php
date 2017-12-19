@@ -97,9 +97,9 @@
       $stmt = parent::prepareStatement("DELETE FROM $this->table WHERE id=?");
       $stmt->bind_param("i",$id);
       if($stmt->execute()){
-        //echo "<br> Excluido com sucesso!";
+        return true;
       }else{
-        //echo "<br> Erro ao excluir!";
+        return false;
       }
 
       $stmt->close();

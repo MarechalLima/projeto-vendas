@@ -11,7 +11,7 @@
 
   $result = $func->deleteById($id);
   if($result) {
-    header("location: caracteristicas.php");
+    header("location: caracteristicas.php?Deleted=TRUE");
   } else {
     header("location: caracteristicas.php");
   }

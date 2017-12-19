@@ -55,9 +55,9 @@
         $stmt->bind_param("i", $id);
 
         if($stmt->execute()) {
-          //echo "Excluído com sucesso!";
+          return true;
         } else {
-          //echo "Erro ao excluir!";
+          return false;
         }
 
         $stmt->close();

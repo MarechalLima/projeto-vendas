@@ -3,10 +3,10 @@
   include 'navbar.php';
   if(isset($_SESSION['admin'])){
     if(!$_SESSION['admin']){
-      header("location:ProdutosView.php");
+      header("location:ProdutosView.php?Denied=TRUE");
     }
   }else{
-    header("location:ProdutosView.php");
+    header("location:ProdutosView.php?Denied=TRUE");
   }
 
  ?>
