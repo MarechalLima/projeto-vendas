@@ -1,5 +1,6 @@
 <?php
   include 'navAdmin.php';
+  require '../model/DAO/FuncionarioDAO.php';
  ?>
 
 <!DOCTYPE html>
@@ -20,16 +21,27 @@
               <th>Cargo</th>
               <th>Login</th>
             </thead>
+            <?php
+              $f = new FuncionarioDAO();
+              $funcionarios = $f->getAll();
+              foreach ($funcionarios as $funcionario) {
+                $idFunc = $funcionario->getId();
+                $nomeFunc = $funcionario->getNome();
+                $cargoFunc = $funcionario->getCargo();
+                $loginFunc = $funcionario->getLogin();
+
+            ?>
             <tr>
-              <td>1</td>
-              <td>Zé da Silva</td>
-              <td>vendedor</td>
-              <td>zesilva1</td>
+              <td><?= $idFunc ?></td>
+              <td><?= $nomeFunc ?></td>
+              <td><?=$cargoFunc ?></td>
+              <td><? $loginFunc ?></td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">edit</i></button>
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
               </td>
             </tr>
+          <?php } ?>
           </table>
         </div>
 
