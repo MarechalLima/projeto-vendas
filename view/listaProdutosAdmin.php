@@ -48,9 +48,9 @@
               ?>
             <tr>
               <td><?= $idProd ?></td>
-              <td><?=$nomeProd ?></td>
-              <td><? $precoProd?></td>
-              <td><? $qtdProd ?></td>
+              <td><?= $nomeProd ?></td>
+              <td><?= $precoProd ?></td>
+              <td><?= $qtdProd ?></td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">edit</i></button>
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
