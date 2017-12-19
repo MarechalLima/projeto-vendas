@@ -12,6 +12,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['admin']);
         unset($_SESSION['funcionario']);
+        //unset($_SESSION['idfunc']);
         header('location: index.php?FromLogout=TRUE');//Retorna a variavel FromLogout
         exit();
       }else {
