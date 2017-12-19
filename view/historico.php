@@ -1,13 +1,12 @@
 <?php
     require dirname(__FILE__).'/../model/DAO/PedidoDAO.php';
-    require dirname(__FILE__).'/../model/DAO/Pedido_ProdutoDAO.php';
     require dirname(__FILE__).'/../model/DAO/ProdutoDAO.php';
     include 'navbar.php';
 
-    session_start();
     $busca_funcionario = new PedidoDAO();
+    $p = new ProdutoDAO();
     $historico = $busca_funcionario->getByFuncionario($_SESSION['usuario']);
-    print_r($historico);
+
 ?>
 <html>
     <head>
@@ -18,13 +17,19 @@
         <div class="container">
             <ul class="collapsible" data-collapsible="accordion">
         <?php
+
             foreach ($historico as $pedido) {
                 $idPedido = $pedido->getId();
                 $data_compra = $pedido->getData_compra();
-                $busca_produtos = new Pedido_ProdutoDAO();
-                $qtdTotal = 0;
-                $pedido_has_produto = $busca_produtos->getAll();
-                print_r($pedido_has_produto);
+                $qtdProd = $pedido->getQuantidade();
+
+                $idProduto = $pedido->getId_produto();
+                $produto = $p->getById($idProduto);
+                $nomeProd = $produto->getNome();
+                $precoProd = $produto->getPreco();
+
+
+
         ?>
         <li>
             <div class="collapsible-header" style="display:block">
@@ -34,16 +39,12 @@
                 </div>
             </div>
             <div class="collapsible-body">
-                <span class="new badge right" data-badge-caption="<?= $qtdTotal ?>">Valor total: </span>
                 <table class="striped bordered">
-                <?php 
-                    foreach ($pedido_has_produto as $array){
-                        echo 'oi';
-                        if ($array->getPedido() == $idPedido){
-                            echo 'oi';
-                        }
-                    }
-                ?>
+                  <tr>
+                    <td><?= $nomeProd ?></td>
+                    <td><?= $qtdProd ?></td>
+                    <td><?= 'R$ '.$precoProd ?></td>
+                  </tr>
                 </table>
             </div>
         <?php } ?>

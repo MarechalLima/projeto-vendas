@@ -35,15 +35,8 @@ CREATE TABLE pedido(
   id int PRIMARY KEY AUTO_INCREMENT,
   data_compra DATE NOT NULL,
   id_funcionario int,
-  FOREIGN KEY(id_funcionario) REFERENCES funcionario(id)
-);
-
-CREATE TABLE pedido_produto(
-  id int PRIMARY KEY AUTO_INCREMENT,
-  id_pedido int,
   id_produto int,
   quantidade int NOT NULL,
-
-  FOREIGN KEY(id_pedido) REFERENCES pedido(id),
-  FOREIGN KEY(id_produto) REFERENCES produto(id)
+  FOREIGN KEY(id_produto) REFERENCES produto(id),
+  FOREIGN KEY(id_funcionario) REFERENCES funcionario(id)
 );
