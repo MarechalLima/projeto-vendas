@@ -40,11 +40,9 @@ img{
 .pagina{
   padding: 5%;
 }
-
-
 #toast-container {
   top: auto !important;
   right: auto !important;
   bottom: 90%;
-  left:40%;
+  left:42%;
 }

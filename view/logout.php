@@ -12,10 +12,10 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['admin']);
         unset($_SESSION['funcionario']);
-        echo "<script>alert('Logout realizado!'); window.location = 'index.php'</script>";
+        header('location: index.php?FromLogout=TRUE');//Retorna a variavel FromLogout
         exit();
       }else {
-        echo "<script>alert('Usuário não logado!'); window.location = 'index.php'</script>";
+        header('location: index.php?NotLoggedIn=TRUE');//Retorna a variavel NotLoggedIn
         exit();
       }
     ?>

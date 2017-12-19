@@ -1,4 +1,10 @@
 <?php
+
+    if (!$_SESSION['logado']) {
+    header('location: index.php?NotLoggedIn=TRUE');
+    exit();
+  }
+
     require dirname(__FILE__).'/../model/DAO/PedidoDAO.php';
     require dirname(__FILE__).'/../model/DAO/ProdutoDAO.php';
     include 'navbar.php';

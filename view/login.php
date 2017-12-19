@@ -32,7 +32,10 @@
         }
 
         if($flag == false) {
-          header("location: index.php");
+          header("location: index.php?IncorrectData=TRUE");
         }
+      }else {
+        header("location: index.php?IncompleteData=TRUE");
+        
       }
 ?>
