@@ -1,6 +1,20 @@
 <?php
   include 'navAdmin.php';
-  require '../model/DAO/ProdutoDAO.php';
+
+
+  if(isset($_POST['caracteristicaId'])){
+    $caracteristicas = $_POST['caracteristicaId'];
+
+    print_r($_POST);
+
+    foreach ($caracteristicas as $key => $value){
+      $valor = $_POST['valor'][$key];
+      print_r($valor);
+
+      echo "<script>alert($value)</script>"; // Id do produto
+      echo "<script>alert($valor)</script>"; // Id do produto
+    }
+  }
 
  ?>
 
@@ -21,27 +35,16 @@
               <th>Preco</th>
               <th>Quantidade em Estoque</th>
             </thead>
-            <?php
-              $p = new ProdutoDAO();
-              $produtos = $p->getAll();
-              foreach ($produtos as $produto) {
-                $idProd = $produto->getId();
-                $nomeProd = $produto->getNome();
-                $precoProd = $produto->getPreco();
-                $quantidadeProd = $produto->getQTDEstoque();
-              
-            ?>
             <tr>
-              <td><?=$idProd ?></td>
-              <td><?=$nomeProd ?></td>
-              <td><?=$precoProd?></td>
-              <td><?= $quantidadeProd ?></td>
+              <td>1</td>
+              <td>Liquidificador</td>
+              <td>850.65</td>
+              <td>300</td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">edit</i></button>
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
               </td>
             </tr>
-          <?php }  ?>
           </table>
         </div>
 
@@ -53,8 +56,8 @@
     </div>
 
     <div id="modalAdd" class="modal">
-      <form class="" action="caracteristicas.php" method="post">
-        <div class="modal-content">
+      <form id="formulario" action="listaProdutosAdmin.php" method="post">
+        <div class="modal-content" id="modal-content">
             <h4>Adicionar produto</h4>
 
             <div class="input-field">
@@ -71,10 +74,36 @@
               <input type="text" id="qtdEstoque" name="qtdEstoque" value="">
               <label for="qtdEstoque">Quantidade em estoque</label>
             </div>
+            <div style="margin: 5% 0px"></div>
+
+
+            <div id="item" class="item">
+              <div class="row">
+                <div class="input-field col s6">
+                  <select name="caracteristicaId[]">
+                    <!-- value é o id da caracteristica -->
+                    <option value="1">Peso</option>
+                    <option value="5">Tensão</option>
+                    <option value="9">Potência</option>
+                  </select>
+                  <label>Característica</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input type="text" name="valor[]" id="valor" />
+                  <label for="valor">Valor</label>
+                </div>
+              </div>
+            </div>
+
 
         </div>
+        <div style="margin: 5% 0px"></div>
+
         <div class="modal-footer">
-          <button type="submit" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Confirmar</button>
+          <a class="btn orange waves-effect waves-light" type="button" id="novaCaract">Nova característica</a>
+
+          <button type="submit" href="#!" class="modal-action modal-close waves-effect waves-green btn">Confirmar</button>
         </div>
       </form>
     </div>
@@ -84,6 +113,19 @@
       // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
         $('.modal').modal();
       });
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+      $(document).ready(function() {
+        $("#novaCaract").click(function() {
+          var novoItem = $("#item").clone().removeAttr('id'); // para não ter id duplicado
+          novoItem.children('input').val(''); //limpa o campo quantidade
+          $("#modal-content").append(novoItem);
+          $('select').material_select();
+        });
+      });
+
     </script>
   </body>
 </html>
