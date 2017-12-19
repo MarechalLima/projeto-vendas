@@ -1,3 +1,8 @@
+<?php
+  session_start();
+ ?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +14,11 @@
       <?php
         include 'materialize.php';
        ?>
+
+      <div id="logout">
+        <?= $_SESSION['funcionario']?>
+        <a href="#" class="">Logout</a>
+      </div>
 
       <nav class="cyan darken-4" role="navigation">
         <div class="nav-wrapper container">
