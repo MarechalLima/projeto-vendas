@@ -37,8 +37,15 @@
               <td><?=$cargoFunc ?></td>
               <td><? $loginFunc ?></td>
               <td>
-                <button class="btn" name="button"><i class="material-icons">edit</i></button>
-                <button class="btn" name="button"><i class="material-icons">delete</i></button>
+
+              <button type="submit" class="btn" name="button"><i class="material-icons">edit</i></button>
+
+                              <form method="POST" action="deleteFuncionario.php">
+                                <button type = "submit" class="btn" name="button"><i class="material-icons">delete</i></button>
+                                <?php
+                                  $_SESSION['idfunc'] = $idFunc;                                  
+                                 ?>
+                              </form>
               </td>
             </tr>
           <?php } ?>
