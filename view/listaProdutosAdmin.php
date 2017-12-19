@@ -8,18 +8,24 @@
     $nome = $_POST['nome'];
     $preco = $_POST['preco'];
     $qtd = $_POST['qtdEstoque'];
-    $caracteriticaIds = $_POST['caracteristicaId[]'];
+    $caracteriticaIds = $_POST['caracteristicaId'];
 
     $produto = new Produto(0,$nome,$preco,$qtd);
     $prod = new ProdutoDAO();
     $prod->insert($produto);
-    $produtoObject = $prod->getByNome($nome);
-    foreach ($caracteriticaIds as $cId) {
-      $c = new CaracteristicaDAO();
-      $caracteristica = $c-getById($cId);
+    $idProduto = $prod->getLastInsert();
 
+    //$produtoObject = $prod->getById($idProduto);
+
+    foreach ($caracteriticaIds as $key => $cId) {
+      echo $cId;
+
+      $c = new CaracteristicaDAO();
+      $caracteristica = $c->getById($cId);
+
+      echo $idProduto." aaaa ".$key;
       $prodCarac = new Produto_caracteristicaDAO();
-      $produtoCaracteristica = new Produto_caracteristica(0,$produtoObject->getId(),$cId,$caracteritica->getValor());
+      $produtoCaracteristica = new Produto_caracteristica(0,$idProduto,$cId,$_POST['valor'][$key]);
       $prodCarac->insert($produtoCaracteristica);
     }
 
