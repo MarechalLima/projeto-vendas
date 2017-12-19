@@ -12,9 +12,9 @@
       $stmt->bind_param("ii", $produto_caracteristica->getId_produto(),$produto_caracteristica->getId_caracteristica(),$produto_caracteristica->getValor());
 
       if($stmt->execute()){
-        echo "Produto_caracteristica inserido com sucesso!";
+        //echo "Produto_caracteristica inserido com sucesso!";
       }else{
-        echo "Erro ao inserir dados!";
+        //echo "Erro ao inserir dados!";
       }
 
       $stmt->close();
@@ -35,7 +35,7 @@
         }
 
       } else {
-        echo "Erro ao consultar o banco de dados!";
+        //echo "Erro ao consultar o banco de dados!";
       }
 
       $stmt->close();
@@ -70,7 +70,7 @@
         }
 
       } else {
-        echo "Erro ao consultar o banco de dados!";
+        //echo "Erro ao consultar o banco de dados!";
       }
 
       $stmt->close();
@@ -82,9 +82,9 @@
       $stmt->bind_param("i", $id);
 
       if($stmt->execute()) {
-        echo "<br> Excluído com sucesso";
+        //echo "<br> Excluído com sucesso";
       } else {
-        echo "<br> Erro ao excluir!";
+        //echo "<br> Erro ao excluir!";
       }
 
       $stmt->close();
