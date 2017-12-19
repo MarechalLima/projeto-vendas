@@ -6,7 +6,7 @@
 
   $func = new FuncionarioDAO();
 
-  $id = $_SESSION['idfunc'];
+  $id = @$_POST['idfunc'];
 
   if($func->deleteById($id)) {
       header("location: listaFuncionarios.php?Deleted=TRUE");
