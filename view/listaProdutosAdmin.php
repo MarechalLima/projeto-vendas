@@ -107,7 +107,7 @@
                       $caracter = new CaracteristicaDAO();
                       $caracteres = $caracter->getAll();
                       foreach ($caracteres as $cs) {
-                        $tituloC = $cs-getTitulo();
+                        $tituloC = $cs->getTitulo();
                         $idC = $cs->getId();
 
                     ?>
