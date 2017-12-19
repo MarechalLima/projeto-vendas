@@ -31,6 +31,14 @@
     }
 
   }
+
+  if(isset($_POST['search'])){
+    $search = $_POST['search'];
+
+    $allProdutos = $prod->getBySearch($search);
+  }else{
+    $allProdutos = $prod->getAll();
+  }
 ?>
 
 
@@ -44,9 +52,9 @@
     <br>
     <nav class="container">
       <div class="nav-wrapper orange lighten-2">
-        <form action="merda.php">
+        <form action="ProdutosView.php" method="post">
           <div class="input-field">
-            <input id="search" type="search" required>
+            <input id="search" name="search" type="search" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
@@ -60,8 +68,6 @@
 
       <ul class="collapsible" data-collapsible="accordion">
         <?php
-
-          $allProdutos = $prod->getAll();
           $cProd = new Produto_caracteristicaDAO();
           $caracteristica = new CaracteristicaDAO();
 
