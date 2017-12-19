@@ -28,9 +28,9 @@
           </a>
 
           <ul class="right hide-on-med-and-down">
-            <li><a href="#">Estoque</a></li>
+            <li><a href="ProdutosView.php">Estoque</a></li>
             <li><a href="historico.php">Histórico de vendas</a></li>
-            <li><a href="#">Painel Administrador</a></li>
+            <li><a href="listaProdutosAdmin.php">Painel Administrador</a></li>
           </ul>
 
           <ul id="nav-mobile" class="side-nav">

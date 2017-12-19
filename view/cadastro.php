@@ -1,3 +1,7 @@
+<?php
+  include 'navAdmin.php';
+ ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,14 +10,51 @@
   </head>
 
   <body>
-      <form method="POST" action="cadastrando.php">
-        Cargo: <input type="text" name = "cargo"> <br>
-        Login: <input type="text" name = "login"> <br>
-        Nome: <input type="text" name = "nome"> <br>
-        Senha: <input type="password" name = "senha"> <br>
-        Senha Confirm: ID: <input type="password" name = "senhaconf"> <br>
+    <div class="container">
 
-        <input type="submit" name="Enviar">
-      </form>
+      <div class="row">
+        <div class="col s10 offset-s3">
+          <h5>Cadastro de funcionários</h5>
+        </div>
+        <div class="col s10 offset-s3">
+          <form method="POST" action="cadastrando.php">
+
+            <div class="input-field ">
+              <input type="text" name = "nome" id="nome">
+              <label for="nome">Nome</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" name = "cargo" id="cargo">
+              <label for="cargo">Cargo</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" name = "login" id="login">
+              <label for="login">Login</label>
+            </div>
+
+
+
+            <div class="input-field">
+              <input type="password" name = "senha" id="senha">
+              <label for="cargo">Senha</label>
+            </div>
+
+            <div class="input-field">
+              <input type="password" name = "senhaconf" id="senha-confirm">
+              <label for="senha-confirm">Confirmação da senha</label>
+            </div>
+
+            <input class="btn" type="submit" name="Enviar">
+          </form>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
   </body>
 </html>
