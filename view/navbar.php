@@ -17,14 +17,16 @@
 
       <div id="logout">
         <?= $_SESSION['funcionario']?>
-        <a href="#" class="">Logout</a>
+        <a href="logout.php" class="">Logout</a>
       </div>
 
       <nav class="cyan darken-4" role="navigation">
         <div class="nav-wrapper container">
+
           <a id="logo-container" href="#" class="brand-logo">
             TopStock
           </a>
+
           <ul class="right hide-on-med-and-down">
             <li><a href="#">Estoque</a></li>
             <li><a href="historico.php">Histórico de vendas</a></li>
@@ -36,6 +38,7 @@
             <li><a href="corretor.php">Corretor</a></li>
             <li><a href="logout.php">Logout</a></li>
           </ul>
+
           <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
       </nav>
