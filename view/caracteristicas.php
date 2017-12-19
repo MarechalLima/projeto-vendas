@@ -37,10 +37,11 @@
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
               </td>
             </tr>
-          </table>
+
           <?php
             }
           ?>
+          </table>
         </div>
 
 
