@@ -1,5 +1,5 @@
 <?php
-    //  require dirname(__FILE__).'/../../conexao.php';
+      require_once dirname(__FILE__).'/../../conexao.php';
       require dirname(__FILE__).'/../domain/Produto_caracteristica.php';
 
       class Produto_caracteristicaDAO extends Connection{
