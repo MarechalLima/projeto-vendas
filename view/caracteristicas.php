@@ -3,7 +3,9 @@
   require '../model/DAO/CaracteristicaDAO.php';
   if(isset($_POST['titulo'])){
     $titulo = $_POST['titulo'];
-    echo "<script>alert('tem titulo $titulo')</script>";
+    $carac = new CaracteristicaDAO();
+    $caracInsert = new Caracteristica(0,$titulo);
+    $carac->insert($caracInsert);
   }
  ?>
 
