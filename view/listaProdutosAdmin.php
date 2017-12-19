@@ -1,22 +1,29 @@
 <?php
   include 'navAdmin.php';
   require '../model/DAO/ProdutoDAO.php';
+  require '../model/DAO/Produto_caracteristicaDAO.php';
+  require '../model/DAO/CaracteristicaDAO.php';
 
+  if(isset($_POST['nome']) && isset($_POST['preco']) && isset($_POST['qtdEstoque'])){
+    $nome = $_POST['nome'];
+    $preco = $_POST['preco'];
+    $qtd = $_POST['qtdEstoque'];
+    $caracteriticaIds = $_POST['caracteristicaId[]'];
 
-  if(isset($_POST['caracteristicaId'])){
-    $caracteristicas = $_POST['caracteristicaId'];
+    $produto = new Produto(0,$nome,$preco,$qtd);
+    $prod = new ProdutoDAO();
+    $prod->insert($produto);
+    $produtoObject = $prod->getByNome($nome);
+    foreach ($caracteriticaIds as $cId) {
+      $c = new CaracteristicaDAO();
+      $caracteristica = $c-getById($cId);
 
-    print_r($_POST);
-
-    foreach ($caracteristicas as $key => $value){
-      $valor = $_POST['valor'][$key];
-      print_r($valor);
-
-      echo "<script>alert($value)</script>"; // Id do produto
-      echo "<script>alert($valor)</script>"; // Id do produto
+      $prodCarac = new Produto_caracteristicaDAO();
+      $produtoCaracteristica = new Produto_caracteristica(0,$produtoObject->getId(),$cId,$caracteritica->getValor());
+      $prodCarac->insert($produtoCaracteristica);
     }
-  }
 
+  }
  ?>
 
 <!DOCTYPE html>
@@ -96,10 +103,16 @@
               <div class="row">
                 <div class="input-field col s6">
                   <select name="caracteristicaId[]">
-                    <!-- value é o id da caracteristica -->
-                    <option value="1">Peso</option>
-                    <option value="5">Tensão</option>
-                    <option value="9">Potência</option>
+                    <?php
+                      $caracter = new CaracteristicaDAO();
+                      $caracteres = $caracter->getAll();
+                      foreach ($caracteres as $cs) {
+                        $tituloC = $cs-getTitulo();
+                        $idC = $cs->getId();
+
+                    ?>
+                    <option value="<? $idC ?>"><?= $tituloC ?></option>
+                    <?php } ?>
                   </select>
                   <label>Característica</label>
                 </div>
