@@ -9,7 +9,7 @@
     public function insert($pedido){
 
       $stmt = parent::prepareStatement("INSERT INTO pedido(data_compra,id_funcionario,id_produto,quantidade) VALUES(?,?,?,?)");
-      $stmt->bind_param("siii",$pedido->getData_compra(),$pedido->getId_funcionario(),$pedido->getId_produto(),$pedido->getQuantidade());
+     $stmt->bind_param("siii",$pedido->getData_compra(),$pedido->getId_funcionario(),$pedido->getId_produto(),$pedido->getQuantidade());
       if($stmt->execute()){
         echo "Pedido inserido com sucesso!";
       }else{
@@ -57,13 +57,13 @@
       $stmt = parent::prepareStatement("SELECT * FROM $this->table WHERE id_funcionario=?");
       $stmt->bind_param("i",$busca_id_funcionario);
       if($stmt->execute()){
-        $stmt->bind_result($id,$data_compra,$id_funcionario);
+        $stmt->bind_result($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
 
 
         $historico = array();
 
         while($stmt->fetch()){
-          $result = new Pedido($id,$data_compra,$id_funcionario);
+          $result = new Pedido($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
           $historico[] = $result;
         }
       }else{
