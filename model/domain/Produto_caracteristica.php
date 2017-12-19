@@ -32,7 +32,7 @@
       $this->id_caracteristica = $new_id_caracteristica;
     }
     public function setValor($new_valor){
-      $this->valor = $new_valor;;
+      $this->valor = $new_valor;
     }
   }
 

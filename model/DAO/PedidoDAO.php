@@ -8,8 +8,8 @@
 
     public function insert($pedido){
 
-      $stmt = parent::prepareStatement("INSERT INTO pedido(data_compra,id_funcionario) VALUES(?,?)");
-      $stmt->bind_param("si",$pedido->getData_compra(),$pedido->getId_funcionario());
+      $stmt = parent::prepareStatement("INSERT INTO pedido(data_compra,id_funcionario,id_produto,quantidade) VALUES(?,?,?,?)");
+      $stmt->bind_param("siii",$pedido->getData_compra(),$pedido->getId_funcionario(),$pedido->getId_produto(),$pedido->getQuantidade());
       if($stmt->execute()){
         echo "Pedido inserido com sucesso!";
       }else{
@@ -23,13 +23,13 @@
     public function getAll(){
       $stmt = parent::prepareStatement("SELECT * FROM $this->table");
       if($stmt->execute()){
-        $stmt->bind_result($id,$data_compra,$id_funcionario);
+        $stmt->bind_result($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
 
 
         $pedidos = array();
 
         while($stmt->fetch()){
-          $result = new Pedido($id,$data_compra,$id_funcionario);
+          $result = new Pedido($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
           $pedidos[] = $result;
         }
       }else{
@@ -45,18 +45,15 @@
       $stmt->bind_param("i",$id);
       $stmt->execute();
 
-      $stmt->bind_result($id,$data_compra,$id_funcionario);
+      $stmt->bind_result($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
       $stmt->fetch();
 
-      $pedido = new Pedido($id,$data_compra,$id_funcionario);
+      $pedido = new Pedido($id,$data_compra,$id_funcionario,$id_produto,$quantidade);
       $stmt->close();
       return $pedido;
     }
 
   }
-  $p = new PedidoDAO();
-  $ped = new Pedido(5,"1/12/2017",500);
-  $p->insert($ped);
 
 
 
