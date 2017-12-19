@@ -111,7 +111,7 @@
                         $idC = $cs->getId();
 
                     ?>
-                    <option value="<? $idC ?>"><?= $tituloC ?></option>
+                    <option value="<?= $idC ?>"><?= $tituloC ?></option>
                     <?php } ?>
                   </select>
                   <label>Característica</label>
