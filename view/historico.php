@@ -40,7 +40,8 @@
         ?>
         <li>
             <div class="collapsible-header" style="display:block">
-                <?= $idPedido ?>
+                Pedido n° <?= $idPedido ?> - 
+                <?= $nomeProd ?>
                 <div class="secondary-content">
                 <?= date('d/m/Y',strtotime($data_compra)) ?>
                 </div>
