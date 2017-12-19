@@ -27,7 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `caracteristica`
 --
-
+CREATE database stoquedb;
+use stoquedb;
 CREATE TABLE `caracteristica` (
   `id` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL
