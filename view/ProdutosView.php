@@ -1,10 +1,13 @@
 <?php
   require '../model/DAO/ProdutoDAO.php';
+  require '../model/DAO/PedidoDAO.php';
   require '../model/DAO/CaracteristicaDAO.php';
   require '../model/DAO/Produto_caracteristicaDAO.php';
   include 'navbar.php';
 
   $prod = new ProdutoDAO();
+  $pedido = new Pedido(0, date('Y/m/d'), $_SESSION['usuario'], $_POST['id'], $_POST['qtd']);
+  $pedidoDAO = new PedidoDAO();
 
   if(isset($_POST['id'])){
     $id = $_POST['id'];
@@ -18,6 +21,7 @@
     }else{
       $produto->setQTDEstoque($estoque-$qtd);
       $prod->update($id,$produto);
+      $pedidoDAO->insert($pedido);
     }
 
   }
