@@ -1,6 +1,6 @@
 <?php
   include 'navAdmin.php';
-
+  require '../model/DAO/CaracteristicaDAO.php';
   if(isset($_POST['titulo'])){
     $titulo = $_POST['titulo'];
     echo "<script>alert('tem titulo $titulo')</script>";
@@ -23,14 +23,24 @@
               <th>Título</th>
               <th>Ações</th>
             </thead>
+            <?php
+            $c = new CaracteristicaDAO();
+            $caracteristicas = $c->getAll();
+            foreach ($caracteristicas as $caracteristica) {
+              $idCarac = $caracteristica->getId();
+              $tituloCarac = $caracteristica->getTitulo();
+            ?>
             <tr>
-              <td>1</td>
-              <td>Peso</td>
+              <td><?= $idCarac ?></td>
+              <td><?= $tituloCarac ?></td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
               </td>
             </tr>
           </table>
+          <?php
+            }
+          ?>
         </div>
 
 
