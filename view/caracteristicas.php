@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row">
         <div class="col s10 offset-s3">
-          <table class="striped col-s8 offset-s3">
+          <table class="highlight col-s8 offset-s3">
             <thead>
               <th>Id</th>
               <th>Título</th>

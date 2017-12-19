@@ -4,7 +4,7 @@
     require dirname(__FILE__).'/../model/DAO/PedidoDAO.php';
     require dirname(__FILE__).'/../model/DAO/ProdutoDAO.php';
     include 'navbar.php';
-    
+
     if (!$_SESSION['logado']) {
     header('location: index.php?NotLoggedIn=TRUE');
     exit();
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="collapsible-body">
-                <table class="striped bordered">
+                <table class="highlight bordered">
                   <tr>
                     <td><?= $nomeProd ?></td>
                     <td><?= $qtdProd ?></td>
