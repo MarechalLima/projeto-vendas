@@ -24,7 +24,7 @@
       <nav class="cyan darken-4" role="navigation">
         <div class="nav-wrapper container">
 
-          <a id="logo-container" href="#" class="brand-logo">
+          <a id="logo-container" href="ProdutosView.php" class="brand-logo">
             <img src="images/topstock-logo.png" alt="">
           </a>
 
