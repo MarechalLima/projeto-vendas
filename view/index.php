@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/master.css">
 
-    <link rel="stylesheet" type="text/css" href="css/transicao/keyframes.css">
-    <link rel="stylesheet" type="text/css" href="css/transicao/animation.scss">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <script>
-      function showToast(message){//Função que exibe o toast
-        Materialize.toast(message, 3000);
+      function showToast(message){
+        Materialize.toast(message, 2000);
       }
     </script>
 
@@ -22,15 +26,16 @@
       session_start();
 
       if (isset($_SESSION["logado"]) && !empty($_SESSION["logado"])) {
-          if ($_SESSION['logado']==true) {
-              //echo "<script>alert('Usuário já logado!'); window.location = 'historico.php'</script>";
-              //exit();
-          }
+        if ($_SESSION['logado']==TRUE) {
+          header('location: ProdutosView.php');        
+          exit();
+        }
       }
 
       include 'materialize.php';
+      
 
-
+      //Verificação de variáveis de url
       if (isset($_REQUEST['FromLogout'])){//Verifica se o logout foi efetuado
         echo "<script>showToast('Logout realizado!')</script>";
         unset($_REQUEST['FromLogout']);
@@ -59,11 +64,12 @@
       if (isset($_REQUEST['DifferentPasswords'])){//Verifica se o usuário não estava logado
         echo "<script>showToast('Senhas diferentes!')</script>";
         unset($_REQUEST['DifferentPasswords']);
-      }
+      }  
       if (isset($_REQUEST['UserAlreadyRegistered'])){//Verifica se o usuário não estava logado
         echo "<script>showToast('Usuário já existente!')</script>";
         unset($_REQUEST['UserAlreadyRegistered']);
-      }
+      }  
+
 
     ?>
     <div class="container">
@@ -114,40 +120,7 @@
                   </form>
               </div>
           </div>
-          <div class="row">
-            <span class="col s12">Não possui uma conta? <span class="teal-text lighten-2 activator">Cadastre-se agora!</span></span>
-          </div>
-        </div>
-        <div class="card-reveal grey lighten-3">
-          <span class="card-title grey-text text-darken-4">Cadastre-se<i class="material-icons right">close</i></span>
-          <br>
-
-
-          <form action="cadastrando.php" method="POST">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="user" type="text" name="usuario" class="validate">
-                <label for="user">Nome de usuário ou email</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="password" type="password" name="senhacad" class="validate">
-                <label for="password">Digite a senha</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="password" type="password" name="senhacadconf" class="validate">
-                <label for="password">Confirme a senha</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <button class="btn waves-effect waves-light red lighten-1" type="submit" name="action">Cadastrar
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
-            </div>
-          </form>
-
-
+        
         </div>
       </div>
     </div>

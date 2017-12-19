@@ -1,7 +1,7 @@
 <?php
+        
   class Connection{
     private $connection;
-
 
     public function __construct(){
       $this->connection = new mysqli("127.0.0.1", "root", "", "stoquedb");
