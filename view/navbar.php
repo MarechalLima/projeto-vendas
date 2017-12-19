@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <link rel="stylesheet" type="text/css" href="css/master.css">
   </head>
@@ -24,7 +25,7 @@
         <div class="nav-wrapper container">
 
           <a id="logo-container" href="#" class="brand-logo">
-            TopStock
+            <img src="images/topstock-logo.png" alt="">
           </a>
 
           <ul class="right hide-on-med-and-down">
