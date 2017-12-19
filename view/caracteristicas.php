@@ -36,7 +36,12 @@
               <td><?= $idCarac ?></td>
               <td><?= $tituloCarac ?></td>
               <td>
-                <button class="btn" name="button"><i class="material-icons">delete</i></button>
+                <form method="POST" action="deleteCaracteristica.php">
+                    <input type="number" name="idcarac" hidden="true" value="<?= $idCarac ?>">
+                    <button class="btn" name="button"><i class="material-icons">delete</i></button>
+                </form>
+
+
               </td>
             </tr>
 

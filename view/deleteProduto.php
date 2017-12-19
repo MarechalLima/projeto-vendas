@@ -5,7 +5,6 @@
   $prod = new ProdutoDAO();
 
   $id = @$_POST['idprod'];
-  echo $id."<br>";
 
   $result = $prod->deleteById($id);
 
