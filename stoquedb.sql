@@ -14,7 +14,7 @@ CREATE TABLE caracteristica(
   titulo VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE pedido_caracteristica(
+CREATE TABLE produto_caracteristica(
   id int PRIMARY KEY AUTO_INCREMENT,
   id_produto int,
   id_caracteristica int,

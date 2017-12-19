@@ -1,6 +1,6 @@
 <?php
-    require dirname(__FILE__).'/../../conexao.php';
-    include dirname(__FILE__).'/../domain/Pedido_Produto.php';
+    require_once dirname(__FILE__).'/../../conexao.php';
+    require dirname(__FILE__).'/../domain/Pedido_Produto.php';
 
   class Pedido_ProdutoDAO extends Connection{
     private $table = 'pedido_produto';
@@ -30,7 +30,7 @@
 
         while($stmt->fetch()){
           $result = new Pedido_Produto($id, $id_pedido, $id_produto, $quantidade);
-          $pedido_produto_array = $result;
+          $pedido_produto_array[] = $result;
         }
       }else{
         echo "Erro ao consultar o banco de dados!";
@@ -75,6 +75,27 @@
       }
 
       $stmt->close();
+    }
+
+    public function getByIdPedido($busca_id_pedido){
+      $stmt = parent::prepareStatement("SELECT * FROM $this->table WHERE id_pedido=?");
+      $stmt->bind_param("i",$busca_id_pedido);
+      if($stmt->execute()){
+        $stmt->bind_result($id, $id_pedido, $id_produto, $quantidade);
+
+
+        $pedido_produto_array = array();
+
+        while($stmt->fetch()){
+          $result = new Pedido_Produto($id, $id_pedido, $id_produto, $quantidade);
+          $pedido_produto_array[] = $result;
+        }
+      }else{
+        echo "Erro ao consultar o banco de dados!";
+      }
+
+      $stmt->close();
+      return $pedido_produto_array;
     }
   }
 

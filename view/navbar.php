@@ -17,7 +17,7 @@
           </a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#">Estoque</a></li>
-            <li><a href="#">Histórico de vendas</a></li>
+            <li><a href="historico.php">Histórico de vendas</a></li>
             <li><a href="#">Painel Administrador</a></li>
           </ul>
 

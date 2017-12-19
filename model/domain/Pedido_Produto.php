@@ -4,7 +4,7 @@
         private $id_pedido;
         private $id_produto;
         private $quantidade;
-        public function __construct($id, $id_pedido, $id_produto, $quantidade){
+        function __construct($id, $id_pedido, $id_produto, $quantidade){
             $this->$id = $id;
             $this->$id_pedido = $id_pedido;
             $this->$id_produto = $id_produto;
