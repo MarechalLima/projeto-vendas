@@ -22,6 +22,28 @@
 
     }
 
+    public function getBySearch($search){
+      $stmt = parent::prepareStatement("SELECT * FROM $this->table where nome LIKE CONCAT(?,'%')");
+      $stmt->bind_param("s",$search);
+      if($stmt->execute()){
+
+        $stmt->bind_result($id, $nome, $preco, $qtd_estoque);
+
+
+        $prudutos = array();
+
+        while($stmt->fetch()){
+          $result = new Produto($id,$nome,$preco,$qtd_estoque);
+          $produtos[] = $result;
+        }
+      }else{
+        //echo "Erro ao consultar o banco de dados!";
+      }
+
+      $stmt->close();
+      return $produtos;
+    }
+
     public function getAll(){
       $stmt = parent::prepareStatement("SELECT * FROM $this->table");
       if($stmt->execute()){
