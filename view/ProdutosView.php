@@ -1,16 +1,15 @@
 <?php
-  session_start();
-  
-  if (!$_SESSION['logado']) {
-      header('location: index.php?NotLoggedIn=TRUE');
-      exit();
-    }
+  //session_start();
 
   require '../model/DAO/ProdutoDAO.php';
   require '../model/DAO/PedidoDAO.php';
   require '../model/DAO/CaracteristicaDAO.php';
   require '../model/DAO/Produto_caracteristicaDAO.php';
   include 'navbar.php';
+  if (!$_SESSION['logado']) {
+      header('location: index.php?NotLoggedIn=TRUE');
+      exit();
+   }
 
   $prod = new ProdutoDAO();
 

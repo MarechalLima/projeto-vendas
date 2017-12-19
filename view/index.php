@@ -3,7 +3,7 @@
   <head>
     <title> Stoque </title>
     <meta charset="utf-8">
-    <link rel="icon" href="images/send-blue.png">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/master.css">
 
@@ -81,7 +81,7 @@
               <div class="col s12">
 
                 <span class="card-title">
-                  <img src="images/logo-editop.png" alt="">
+                  <img src="images/topstock-logo-index.png" alt="">
                 </span>
                 <br><br><br>
 
