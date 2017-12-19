@@ -56,6 +56,20 @@
       return $caracteristica;
     }
 
+    public function deleteByIdCaracteristica($id){
+        $stmt = parent::("delete from $this->table where id_caracteristica = ?");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+    }
+
+    public function deleteByIdProduto($id){
+        $stmt = parent::("delete from $this->table where id_produto = ?");
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+    }
+
     public function getByIdProd($idProd) {
       $stmt = parent::prepareStatement("SELECT * from $this->table where id_produto = ?");
       $stmt->bind_param("i", $idProd);
