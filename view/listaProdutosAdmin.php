@@ -1,5 +1,6 @@
 <?php
   include 'navAdmin.php';
+  require '../model/DAO/ProdutoDAO.php';
 
 
   if(isset($_POST['caracteristicaId'])){
@@ -35,16 +36,27 @@
               <th>Preco</th>
               <th>Quantidade em Estoque</th>
             </thead>
+            <?php
+              $p = new ProdutoDAO();
+              $produtos = $p->getAll();
+              foreach ($produtos as $produto) {
+                $idProd = $produto->getId();
+                $nomeProd = $produto->getNome();
+                $precoProd = $produto->getPreco();
+                $qtdProd = $produto->getQTDEstoque();
+
+              ?>
             <tr>
-              <td>1</td>
-              <td>Liquidificador</td>
-              <td>850.65</td>
-              <td>300</td>
+              <td><?= $idProd ?></td>
+              <td><?=$nomeProd ?></td>
+              <td><? $precoProd?></td>
+              <td><? $qtdProd ?></td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">edit</i></button>
                 <button class="btn" name="button"><i class="material-icons">delete</i></button>
               </td>
             </tr>
+          <?php } ?>
           </table>
         </div>
 
