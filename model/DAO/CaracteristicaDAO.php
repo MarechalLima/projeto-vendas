@@ -10,9 +10,9 @@
         $stmt->bind_param("is", $Caracteristica->getId(), $Caracteristica->getTitulo());
 
         if($stmt->execute()) {
-          echo "Caracteristica inserida com sucesso";
+          //echo "Caracteristica inserida com sucesso";
         } else {
-          echo "Erro ao inserir dados!";
+          //echo "Erro ao inserir dados!";
         }
       }
 
@@ -29,7 +29,7 @@
             $caracteriticas[] = $result;
           }
         } else {
-          echo "Erro ao consultar dados!";
+          //echo "Erro ao consultar dados!";
         }
         $stmt->close();
         return $caracteriticas;
@@ -55,9 +55,9 @@
         $stmt->bind_param("i", $id);
 
         if($stmt->execute()) {
-          echo "Excluído com sucesso!";
+          //echo "Excluído com sucesso!";
         } else {
-          echo "Erro ao excluir!";
+          //echo "Erro ao excluir!";
         }
 
         $stmt->close();
@@ -68,9 +68,9 @@
         $stmt->bind_param("si", $novaCaracteristica->getTitulo(), $id);
 
         if($stmt->execute()) {
-          echo "Update realizado com sucesso!";
+          //echo "Update realizado com sucesso!";
         } else {
-          echo "Erro ao realizar update!";
+          //echo "Erro ao realizar update!";
         }
 
         $stmt->close();

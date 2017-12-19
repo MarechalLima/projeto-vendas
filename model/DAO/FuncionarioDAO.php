@@ -10,9 +10,9 @@
       $stmt->bind_param("ssss", $Funcionario->getCargo(), $Funcionario->getLogin(), $Funcionario->getNome(), password_hash($Funcionario->getSenha(), PASSWORD_DEFAULT));
 
       if($stmt->execute()) {
-        echo "Funcionario inserido com sucesso!";
+        //echo "Funcionario inserido com sucesso!";
       } else {
-        echo "Erro ao inserir dados!";
+        //echo "Erro ao inserir dados!";
       }
   }
 
@@ -30,7 +30,7 @@
       }
 
     } else {
-      echo "Erro ao consultar o banco de dados!";
+      //echo "Erro ao consultar o banco de dados!";
     }
 
     $stmt->close();
@@ -56,9 +56,9 @@
     $stmt->bind_param("i", $id);
 
     if($stmt->execute()) {
-      echo "<br> Excluído com sucesso";
+      //echo "<br> Excluído com sucesso";
     } else {
-      echo "<br> Erro ao excluir!";
+      //echo "<br> Erro ao excluir!";
     }
 
     $stmt->close();
@@ -69,9 +69,9 @@
     $stmt->bind_param("ssssi",  $novoFuncionario->getCargo(), $novoFuncionario->getLogin(), $novoFuncionario->getNome(), $novoFuncionario->getSenha(), $id);
 
     if($stmt->execute()) {
-      echo "Update realizado com sucesso!";
+      //echo "Update realizado com sucesso!";
     } else {
-      echo "Erro ao realizar update";
+      //echo "Erro ao realizar update";
     }
 
     $stmt->close();
