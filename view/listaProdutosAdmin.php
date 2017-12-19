@@ -53,7 +53,12 @@
               <td><?= $qtdProd ?></td>
               <td>
                 <button class="btn" name="button"><i class="material-icons">edit</i></button>
-                <button class="btn" name="button"><i class="material-icons">delete</i></button>
+
+                <form method="POST" action="deleteProduto.php">
+                    <input type="number" name="idprod" hidden="true" value="<?= $idProd ?>">
+                    <button class="btn" name="button"><i class="material-icons">delete</i></button>
+                </form>
+
               </td>
             </tr>
           <?php } ?>
