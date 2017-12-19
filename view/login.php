@@ -18,6 +18,11 @@
             $_SESSION['usuario'] = $login['id'];
             $_SESSION['logado'] = true;
             $_SESSION['funcionario'] = $login['nome'];
+            if($login['nome'] == "admin"){
+                $_SESSION['admin'] = true;
+            }else{
+                $_SESSION['admin'] = false;
+            }
             $flag = true;
             header("location: ProdutosView.php");
             break;

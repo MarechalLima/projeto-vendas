@@ -6,10 +6,8 @@
   include 'navbar.php';
 
   $prod = new ProdutoDAO();
-  $pedido = new Pedido(0, date('Y/m/d'), $_SESSION['usuario'], $_POST['id'], $_POST['qtd']);
-  $pedidoDAO = new PedidoDAO();
 
-  if(isset($_POST['id'])){
+  if(isset($_POST['id']) && isset($_POST['qtd']) && isset($_SESSION['usuario'])){
     $id = $_POST['id'];
     $qtd = $_POST['qtd'];
 
@@ -19,6 +17,8 @@
     if($qtd > $estoque){
       echo "<script>alert('Não temos estoque suficiente para esta compra!')</script>";
     }else{
+      $pedido = new Pedido(0, date('Y/m/d'), $_SESSION['usuario'], $_POST['id'], $_POST['qtd']);
+      $pedidoDAO = new PedidoDAO();
       $produto->setQTDEstoque($estoque-$qtd);
       $prod->update($id,$produto);
       $pedidoDAO->insert($pedido);

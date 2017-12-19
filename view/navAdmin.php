@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(!$_SESSION['admin']){
+  if(!$_SESSION['admin'] || !isset($_SESSION['admin'])){
     //redirecionar
   }
 
